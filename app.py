@@ -61,5 +61,5 @@ def upload_image():
             print(f"Error saving image: {e}")
             return jsonify({"error": "Error saving image file"}), 500
 
-if __name__=="__main__":
-    app.run()
+# if __name__=="__main__":
+#     app.run()
