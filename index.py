@@ -7,7 +7,7 @@ import os
 
 #flask app instance
 app=Flask(__name__)
-# CORS(app)
+CORS(app)
 @app.route("/api/home",methods=['GET'])
 def return_home():
     return jsonify({
