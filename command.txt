@@ -3,8 +3,8 @@
 create .env file create variable GOOGLE_API_KEY and API_KEY(groq api key)
 
 #creat virtual environment: this is for mac
-python -m venv venv       
-
+python -m venv venv     
+source venv/bin/activate 
 #install
 pip install flask  
 pip install groq  

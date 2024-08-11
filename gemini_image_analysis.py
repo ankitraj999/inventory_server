@@ -1,7 +1,10 @@
 import os
 import google.generativeai as genai
+from dotenv import load_dotenv
 from PIL import Image
 import json
+
+load_dotenv()
 
 # Configure the API key
 api_key = os.getenv("GOOGLE_API_KEY")
