@@ -2,9 +2,8 @@
 
 create .env file create variable GOOGLE_API_KEY and API_KEY(groq api key)
 
-
-python -m venv venv     
-source venv/bin/activate   
+#creat virtual environment: this is for mac
+python -m venv venv       
 
 #install
 pip install flask  
@@ -15,7 +14,7 @@ pip install google-generativeai Pillow
 #to run sever
 python server.py
 
-# to create requirements.txt with all the modules to install
+# to create requirements.txt in the current env with all the modules to install
 use command : pip freeze > requirements.txt
 
 ----------------------------------------
