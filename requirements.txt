@@ -1,4 +1,4 @@
-flask_cors
+flask-cors
 Pillow
 python-dotenv
 annotated-types==0.7.0
