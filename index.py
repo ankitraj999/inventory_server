@@ -4,7 +4,7 @@ from gemini_image_analysis import analyze_image
 from flask_cors import CORS
 from werkzeug.utils import secure_filename
 import os
-
+import io
 #flask app instance
 app=Flask(__name__)
 CORS(app)
@@ -32,8 +32,8 @@ def get_recipe():
         "items": item_list,
         "recipe": recipe
     })
-UPLOAD_FOLDER = 'uploads'
-app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+# UPLOAD_FOLDER = 'uploads'
+# app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 @app.route('/api/image', methods=['POST'])
 def upload_image():
     if 'image' not in request.files:
@@ -46,14 +46,15 @@ def upload_image():
     
     if file:
         try:
-            os.makedirs(UPLOAD_FOLDER, exist_ok=True) 
+            # os.makedirs(UPLOAD_FOLDER, exist_ok=True) 
             filename = secure_filename(file.filename)
-            filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
-            file.save(filepath)
-            print(f"Image saved successfully to: {filepath}")
+            # filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+            # file.save(filepath)
+            print(f"Image saved successfully to: {filename}")
             # Process the image
-            result = analyze_image(filepath)
-            os.remove(filepath)
+            in_memory_file = io.BytesIO(file.read())
+            result = analyze_image(in_memory_file)
+            # os.remove(filepath)
             
             print(f"product details: {result}")
             return result
